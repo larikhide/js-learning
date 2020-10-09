@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <nav></nav>
+    </header>
+    <main></main>
+    <footer></footer>
+    <script>
+        // document.body.style.background = 'lightgreen';
+        // let header = document.createElement('header');
+        // header.style.fontFamily = 'sans-serif';
+        // header.innerText = 'Hello Header';
+        // header.classList.add('test');
+        // document.body.appendChild(header)
+        document.querySelector('header').querySelector('h1').innerText = 'Test';
+        let arr = ['About', 'Shop', 'Something', 'Contacts'];
+
+        let nav = document.querySelector('nav');
+
+        function createNav(arr) {
+            let str = '';
+            arr.forEach((element, index) => {
+                str += `<li class="test lol">
+                            <a id="link-${index}" href="#">${element}</a>
+                        </li>`
+            })
+
+            nav.innerHTML = str;
+        }
+
+        // function createNav(menuArray) {
+        //     menuArray.forEach(element => {
+        //         let li = document.createElement('li');
+        //         let a = document.createElement('a');
+        //         a.href = '#';
+        //         a.innerText = element;
+        //         li.appendChild(a);
+        //         nav.appendChild(li);
+        //     });
+        // }
+
+        createNav(arr)
+    </script>
+</body>
+
+</html>
