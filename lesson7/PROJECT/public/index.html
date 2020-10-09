@@ -20,11 +20,24 @@
             </form>
         </div>
         <div class="header__right">
-            <a href="cart.html">
-                <img src="../src/assets/img/kart.png" alt="order">
-                <div class="header__right-qty">2</div>
+            <a href="#" class="header__cart" id="toggle-basket">
+                <div id="cart-badge" class="header__cart-badge">0</div>
+                <img src="../src/assets/img/cart.png" alt="card" class="header__cart-img">
             </a>
-            <a href="checkout.html">My Account <i class="fas fa-caret-down"></i></a>
+            <div class="drop-cart hidden">
+                <div id="basket">
+
+                </div>
+                <div class="drop-cart__total">
+                    <span class="drop-cart__total-name">TOTAL</span>
+                    <span id="basket-total" class="drop-cart__total-sum">$500.00</span>
+                </div>
+                <a id="checkout-button" onclick="return false" href="checkout.html" class="drop-cart__button">Checkout</a>
+                <a id="go-cart" href="shopping-cart.html" class="drop-cart__button">Go to cart</a>
+            </div>
+
+            <a href="#" class="button">My Account<i class="fas fa-caret-down"></i></a>
+            <a href="#" class="icon-user"><i class="fas fa-user-alt"></i></a>
         </div>
     </div>
     <div class="header_line"></div>
@@ -100,7 +113,9 @@
             <h2>Featured Items</h2>
             <h4>Shop for items based on what we featured in this week</h4>
         </div>
-        <div id="catalog"></div>
+        <div id="catalog">
+
+        </div>
         <div class="featured-items__undertitle">
             <a href="#">Browse All Product <i class="fas fa-long-arrow-alt-right"></i></a>
         </div>
@@ -213,6 +228,8 @@ a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”<
             </div>
         </div>
     </div>
+
     <script src="../src/components/catalog.js"></script>
+    <script src="../src/components/basket.js"></script>
 </body>
 </html>
