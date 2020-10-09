@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main  {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #keyboard button {
+            width: 40px;
+            height: 40px;
+            font-size: 14px;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="text" disabled id="inp">
+        </div>
+        <div class="main" id="keyboard">
+
+        </div>
+    </div>
+
+    <script>
+        const calc = {
+            number: '',
+            input: null,
+            containerKeyboard: null,
+
+            init() {
+                this.number = '';
+                this.containerKeyboard = document.querySelector('#keyboard');
+                this.input = document.querySelector('#inp');
+                this._renderKeyboard();
+                this._handleEvents(); //псевдо инкапсуляция (это из ООП)
+            },
+            _handleEvents() {
+                this.containerKeyboard.addEventListener('click', evt => {
+                    if (evt.target.name == 'num' || evt.target.parentNode.name == 'num') {
+                        let dataSet = evt.target.name == 'num' ? evt.target.dataset : evt.target.parentNode.dataset;
+                        this._addNum(dataSet.value);
+                    }
+                })
+            },
+            _renderKeyboard() {
+                let str = '';
+                for (let i = 0; i <= 9; i++) {
+                    str += `<button name="num" data-value="${i}" data-some="${i} - number">
+                                <span>${i}</span>
+                            </button>`
+                }
+                this.containerKeyboard.innerHTML = str;
+            },
+            _addNum(num) {
+                this.number += num;
+                this.input.value = this.number;
+            }
+        }
+
+        calc.init();
+
+
+
+        //ДЗ:
+        // 1) Сделать вёрстку корзины (при ховере)
+        // 2) доработать калькулятор до полноценного состояния
+        // И/ИЛИ
+        // 3) Быки и коровы, камень-ножницы-бумага, Кто хочет стать миллионером
+    </script>
+</body>
+</html>
