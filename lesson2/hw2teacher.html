@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div style="display: flex;justify-content: space-around;max-width: 800px;margin: auto;margin-top: 70px;border: 1px solid gray; padding: 50px;">
+        <button onclick="first()">Switch [a... 15]</button>
+        <button onclick="task4()">Пункт 4 </button>
+        <button onclick="task5()">Пункт 5</button>
+        <button onclick="exp()">Степень</button>
+      
+    </div>
+    <div style="max-width: 800px;margin: auto;text-align: center;margin-top: 70px;border: 1px solid gray;padding: 50px;">
+        <h2>Сыграем?</h2>
+        <button onclick="game(1)">
+            <i class="fas fa-hand-rock"></i>
+        </button>
+        <button onclick="game(2)">
+            <i class="fas fa-cut"></i>
+        </button>
+        <button onclick="game(3)">
+            <i class="fas fa-toilet-paper"></i>
+        </button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let operation, a, b;
+
+        function first() {
+            let a = +prompt('Введите число от 0 до 15');
+
+            switch (a) {
+                case 0:
+                    console.log(a++);
+                case 1:
+                    console.log(a++);
+                case 2:
+                    console.log(a++);
+                case 3:
+                    console.log(a++);
+                case 4:
+                    console.log(a++);
+                case 5:
+                    console.log(a++);
+                case 6:
+                    console.log(a++);
+                case 7:
+                    console.log(a++);
+                case 8:
+                    console.log(a++);
+                case 9:
+                    console.log(a++);
+                case 10:
+                    console.log(a++);
+                case 11:
+                    console.log(a++);
+                case 12:
+                    console.log(a++);
+                case 13:
+                    console.log(a++);
+                case 14:
+                    console.log(a++);
+                case 15:
+                    console.log(a++);
+                    alert('Результат в консоли')
+                    break;
+            }
+        }
+
+
+
+        function sum(arg1, arg2) {
+            return arg1 + arg2;
+        }
+
+        function def(arg1, arg2) {
+            return arg1 - arg2;
+        }
+
+        function prod(arg1, arg2) {
+            return arg1 * arg2;
+        }
+
+        function quot(arg1, arg2) {
+            return arg2 ? arg1 / arg2 : '0 subdivision error'
+        }
+
+        function task5() {
+            a = +prompt('Введите число "a"');
+
+            b = +prompt('Введите число "b"');
+
+            operation = +prompt('Введите номер требуемого действия\n1 - сумма\n2 - разность\n3 - произведение\n4 - частное');
+            mathOperation(a, b, operation)
+        }
+        
+        function mathOperation(arg1, arg2, operation){
+            
+            switch (operation) {
+                case 1:
+                    console.log(`${a}+${b}=${sum(a, b)}`);
+                    break;
+                case 2:
+                    console.log(`${a}-${b}=${def(a, b)}`);
+                    break;
+                case 3:
+                    console.log(`${a}*${b}=${prod(a, b)}`);
+                    break;
+                case 4:
+                    console.log(`${a}/${b}=${quot(a, b)}`);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function power(val, pow) {
+            if (pow >= 0) return !pow ? 1 : val * power(val, pow - 1);
+        }
+            
+
+        function exp(){
+            let a = +prompt('введите число');
+            let b = +prompt('Введите степень')
+            console.log(`число ${a} в степени ${b} = ${power(a,b)}`)
+        }
+
+     // камень, ножницы, бумага
+        let res = document.getElementById('result');
+
+        function game(me) {
+            let skynet = Math.floor(Math.random() * 3) + 1;
+
+            let result = check(me, skynet);
+
+            res.innerText = (result);
+        }
+
+        function check(a, b) {
+            let winner = null;
+
+            if ((a === 1 && b === 2) || (a === 2 && b === 3) || (a === 3 && b === 1)) {
+                winner = 'Human';
+            } else if (a === b) {
+                winner = 'Both';
+            } else {
+                winner = 'Skynet';
+            }
+
+            return `${winner} победил; Человек: ${a} / Машина: ${b}`;
+        }
+
+    </script>
+</body>
+
+</html>

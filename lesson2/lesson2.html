@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Шаблонные строки
+
+        // let a = 10;
+        // let b = 5;
+
+        // console.log('Результат сложения А и Б будет равен: ' + (a + b) + '.');
+        // console.log(`Результат сложения А и Б будет равен: ${a + b}.`)
+
+        // // унарные
+        // +'123' // 123
+        // 1++ // 2
+        // 2-- // 1
+        // typeof 2 // 'number'
+
+        // //бинарные
+        // 1 > 3 // false
+        // 1 += 100500 // 100501
+
+        // Инкремент и декремент
+        // 1++ и ++1
+        // 2-- и --2
+        // let a = 1;
+        // console.log(a--)
+
+        // let a = 10;
+        // a += 50; // 60
+        // a -= 40; // 20
+
+        // a *= 5; // 100
+
+        // Логические операторы
+        // Читать про Булеву Алгебру (алгебра высказываний)
+        // уч. Информатика 10-11 под ред. Угринович
+
+        // true && true // И - Коньюнкция - лог. умножение - 1 * 1 == 1
+        // false || false // ИЛИ - Дизъюнкция - лог. сложение - 0 + 0 = 0
+        // !true // НЕ - Инверсия - лог. отрицание
+
+        // ПРОВЕРКИ УСЛОВИЙ
+        // IF ... ELSE IF ... ELSE
+        // Switch
+        // ? (тернарный оператор)
+
+        // Switch
+
+        // let name = prompt('Enter name');
+
+        // checkName(name);
+
+        // function checkName(name) {
+        //     switch(name) {
+        //         case 'Сергей': {
+        //             console.log('Приветствую, Богоподобный!');
+        //             break;
+        //         }
+
+        //         case 'Грут': {
+        //             console.log('Я есть Грут');
+        //             break;
+        //         }
+
+        //         default: {
+        //             console.log('Приветствую!');
+        //             break;
+        //         }
+        //     }
+        // }
+
+        // If Else
+
+        // let a = true;
+        // let b = true;
+
+        // if (a && b) {
+        //     console.log('Both true');
+        // } else if (a && !b) {
+        //     console.log('b false');
+        // } else if (!a && b) {
+        //     console.log('a false');
+        // } else {
+        //     console.log('Both false');
+        // }
+
+
+        // //if else + тернарный оператор
+        // // 2
+        // if (a && b) {
+        //     console.log('Both true');
+        // } else if (!a || !b) {
+        //     console.log(`${!a ? 'a' : 'b'} false`);
+        // } else {
+        //     console.log('Both false');
+        // }
+
+        // //3
+        // if ((a && b) || (!a && !b)) {
+        //     console.log(`Both ${a ? 'true' : 'false'}`);
+        // } else {
+        //     console.log(`${!a ? 'a' : 'b'} false`);
+        // }
+
+
+        //functions
+        // someName('123');
+
+        // function someName(par) {
+        //     console.log(par);
+        // }
+
+        // //anonimus
+        // const someAnonFunc = function(pp) {
+        //     console.log('Anonimus ' + pp);
+        // }
+
+        // someAnonFunc(123);
+
+        //стрелочный синтаксис
+
+        // const arrowFunction = param => {
+        //     console.log(param);
+        // }
+
+        // const secondArrow = () => {
+        //     //...
+        //     return true
+        // }
+
+        // const justReturnArrowFunc = par => !!par;
+        // // 120 >> !!120 -- true
+        // const altJustReturnArrowFunc = function(para) {
+        //     return !!para
+        // }
+
+
+        //НЕЛЬЗЯ
+        // function task5() {
+        //     function add(a, b) {
+        //         return a + b
+        //     }
+
+        //     function minus(a, b) {
+        //         return a - b
+        //     }
+        // }
+
+        // add(5, 3); // невозможно вызвать
+
+        //НАДО
+        // function add(a, b) {
+        //     return a + b;
+        // }
+
+        // function minus(a, b) {
+        //     return a - b;
+        // }
+
+        // function task5() {
+        //     add(2, 3);
+        // }
+
+
+        // Рекурсия
+
+        // function rec(num) {
+        //     if (num > 0) {
+        //         console.log(num);
+        //         rec(--num);
+        //     } else {
+        //         return false;
+        //     }
+        // }
+    </script>
+</body>
+</html>

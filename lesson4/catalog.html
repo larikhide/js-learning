@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="console.log(catalog)">items with PRICES</button>
+</body>
+
+<script>
+    // 1. Вернуть массив с названием объекта и его стоимостью
+
+    function createNewItem(name, price) {
+        return {
+            name, //name: name,
+            price //price: price
+        }
+    }
+
+    const NAMES = ['Mango People T-Shirt', 'Banana People T-Shirt', 'Strawberry People T-Shirt', 'Orange People T-Shirt', 'Pumpkin People T-Shirt', 'Pineapple People T-Shirt', 'Cucumber People T-Shirt', 'Tomato People T-Shirt'];
+    const PRICES = [52, 53, 55, 67, 69, 94, 23, 45];
+
+    function getItems() {
+        return NAMES.map((name, index) => createNewItem(NAMES[index], PRICES[index]));
+    }
+
+    const catalog = {
+        items: [],
+        init() {
+            this.items = getItems();
+        }
+    }
+
+    catalog.init();
+
+</script>
+
+</html>

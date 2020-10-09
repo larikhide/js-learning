@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="task1()">task1</button>
+    <button onclick="task2()">task2</button>
+    <button onclick="task3()">task3</button>
+    <script>
+        /* 1. 3адать температуру в градусах по Цельсию. 
+        Вывести в alert соответствующую температуру в градусах по Фаренгейту. 
+        Подсказка: расчёт идёт по формуле: Tf = (9 / 5) * Tc + 32, где Tf – температура по Фаренгейту, Tc – температура по Цельсию*/
+        function task1() {
+            let Tc = 30;
+            let Tf = (9/5)*Tc +32;
+            alert(Tf);
+        }
+
+        /* 2. Объявить две переменные: admin и name. Записать в name строку "Василий"; 
+        Скопировать значение из name в admin. Вывести admin (должно вывестись «Василий»). */
+        function task2(){
+            let admin, name;
+            name = "Василий";
+            admin = name;
+            alert(admin);
+        }
+
+        // 3* Чему будет равно JS-выражение 1000 + "108"?
+        function task3(){
+            answer = 1000 + "108";
+            alert(answer)
+        }
+
+        // 4* Самостоятельно разобраться с атрибутами тега script (async и defer).
+        //async Загружает скрипт асинхронно.
+        //defer Откладывает выполнение скрипта до тех пор, пока вся страница не будет загружена полностью.
+    </script>
+</body>
+</html>

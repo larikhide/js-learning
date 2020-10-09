@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="console.log(getSimples(100))">task1 getSimples</button>
+    <button onclick="game()">task2 Bulls and cows</button>
+    <button onclick="withoutFor()">task3 withoutFor</button>
+    <button onclick="pyramid()">task4 pyramid</button>
+
+    <script>
+        //1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+        function getSimples(lim) {
+            let arrSimples = [2];
+            let num = 3;
+
+            for (num; num < lim; num++) {
+                if (check(num, arrSimples)) {
+                    arrSimples.push(num);
+                }
+            }
+            return arrSimples
+        }
+
+        function check(num, arr) {
+            let flag = false;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (num % arr[i]) {
+                    flag = true;
+                } else {
+                    flag = false;
+                    break
+                }
+            }
+            return flag;
+        }
+
+        // 2.* Реализовать игру "Быки и Коровы"
+        function game() {
+            let rounds = 10;
+            let play = true;
+            let goal = getNumber(); //для загаданного числа
+            //console.log(goal) для тестов
+
+            while (play) {
+                if (rounds) {
+                    let user = [...prompt('enter 4 digits value')]; //для введеного пользователем числа
+                    play = check(user, goal)
+                    console.log(play ? `${--rounds} left` : `User wins. GOAL: ${goal}`)
+                } else {
+                    console.log(`user lost! ${goal}`)
+                    play = false;
+                }
+            }
+        }
+
+        //создается массив из 4х элементов с неповторяющимися цифрами
+        function getNumber() {
+            let arr = [];
+
+            while (arr.length != 4) {
+                rNum = getRndNum();
+                if (!arr.includes(rNum)) {
+                    arr.push(rNum);
+                }
+            }
+            return arr
+        }
+
+        function getRndNum() {
+            return (Math.floor(Math.random() * 10))
+        }
+
+        // проверка на содержание введенного числа в загаданном поэлементно
+        function check(user, goal) {
+            let bulls = 0;
+            let cows = 0;
+
+            for (let i = 0; i < 4; i++) {
+                if (+user[i] === goal[i]) {
+                    bulls++;
+                } else if (goal.includes(+user[i])) {
+                    cows++;
+                }
+            }
+            analyse(user, bulls, cows)
+            return bulls == 4 ? false : true;
+        }
+
+        function analyse(user, bulls, cows) {
+            console.log(`User variant: ${user}\n
+            Bulls: ${bulls}, Cows: ${cows}`)
+        }
+
+        // 3.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. 
+        function withoutFor() {
+            for (let i = 0; i <= 9; console.log(i++)) {
+                //здесь реально пусто
+            }
+        }
+
+        //4. *Нарисовать пирамиду с помощью console.log, как показано на рисунке, 
+        //только у вашей пирамиды должно быть 20 рядов, а не 5
+        function pyramid() {
+            let storey = '';
+            for (let i = 0; i < 20; i++) {
+                storey+='#';
+                console.log(storey)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

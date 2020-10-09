@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="task4()">task4</button>
+  <button onclick="mathOperation()">task 5 and 6</button>
+  <button onclick="powerCall()">task 8</button>
+
+  <script>
+    //4. Присвоить переменной а значение в промежутке [0..15]. 
+    ///С помощью оператора switch организовать вывод чисел от a до 15.
+    function task4() {
+      let a = 13;
+      switch (a) {
+        case 0:
+          console.log(0)
+        case 1:
+          console.log(1);
+        case 2:
+          console.log(2);
+        case 3:
+          console.log(3);
+        case 4:
+          console.log(4);
+        case 5:
+          console.log(5);
+        case 6:
+          console.log(6);
+        case 7:
+          console.log(7);
+        case 8:
+          console.log(8);
+        case 9:
+          console.log(9);
+        case 10:
+          console.log(10);
+        case 11:
+          console.log(11);
+        case 12:
+          console.log(12);
+        case 13:
+          console.log(13);
+        case 14:
+          console.log(14);
+        case 15:
+          console.log(15);
+          break;
+      }
+    }
+
+
+    //5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. 
+    //Обязательно использовать оператор return.
+    function add(a, b) {
+      return a + b;
+    }
+
+    function sub(a, b) {
+      return a - b;
+    }
+
+    function mult(a, b) {
+      return a * b;
+    }
+
+    function div(a, b) {
+      return a / b;
+    }
+
+    //6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+    //где arg1, arg2 – значения аргументов, operation – строка с названием операции. 
+    //В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 5)
+    //и вернуть полученное значение (использовать switch).
+
+    function mathOperation(arg1, arg2, operation) {
+      arg1 = +prompt("введите первый аргумент");
+      arg2 = +prompt("введите второй аргумент");
+      operation = prompt("введите действие");
+      switch (operation) {
+        case "+":
+          console.log(add(arg1, arg2));
+          break;
+        case "-":
+          console.log(sub(arg1, arg2));
+          break;
+        case "*":
+          console.log(mult(arg1, arg2));
+          break;
+        case "/":
+          console.log(div(arg1, arg2));
+          break;
+      }
+    }
+
+    // 8. *С помощью рекурсии организовать функцию возведения числа в степень. 
+    //Формат: function power(val, pow), где val – заданное число, pow – степень.
+    function powerCall() {
+      var val = +prompt("введите основание");
+      var pow = +prompt("введите степень");
+      console.log(power(val, pow));
+    }
+
+    function power(val, pow) {
+      return (pow === 1) ? val : (val * power(val, pow - 1));
+    }
+
+  </script>
+</body>
+
+</html>

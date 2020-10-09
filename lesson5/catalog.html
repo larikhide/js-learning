@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .item img {
+            width: 100px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div id="catalog" class="w-100 p-5 d-flex flex-wrap justify-content-center">
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        const NAMES = ['Mango People T-Shirt', 'Banana People T-Shirt', 'Strawberry People T-Shirt', 'Orange People T-Shirt', 'Pumpkin People T-Shirt', 'Pineapple People T-Shirt', 'Cucumber People T-Shirt', 'Tomato People T-Shirt'];
+        const PRICES = [52, 53, 55, 67, 69, 94, 23, 45];
+
+        //
+        const catalog = {
+            items: [],
+            container: null,
+            imgFTPurl: 'https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop',
+            init() {
+                this.container = document.querySelector('#catalog');
+                this.items = getItems();
+                this.render();
+            },
+            render() {
+                let htmlStr = '';
+                this.items.forEach((item, index) => {
+                    let imgURL = `${this.imgFTPurl}/featuredItem${index + 1}.jpg`;
+                    htmlStr += `
+                    <div class="item d-flex flex-column align-items-center p-2 m-2 border">
+                        <img src="${imgURL}" alt="">
+                        <b>${item.productName}</b>
+                        <p>$${item.productPrice}</p>
+                        <button class="btn btn-primary">Buy</button>
+                    </div>
+                    `;
+                });
+                this.container.innerHTML = htmlStr;
+            }
+        }
+
+        catalog.init();
+        //
+
+        function createNewItem(name, price) {
+            return {
+                productName: name,
+                productPrice: price
+            }
+        }
+
+        function getItems() {
+            return NAMES.map((name, index) => createNewItem(NAMES[index], PRICES [index]));
+        }
+        
+
+    </script>
+</body>
+</html>
