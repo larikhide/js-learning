@@ -9,7 +9,7 @@ const abobe = {
     x: 0,
     y: 0,
     editor: {
-        currentTool: null, //'pencil'
+        currentTool: null,
         currentColor: '#000',
         currentBrushSize: 10
     },
@@ -24,9 +24,10 @@ const abobe = {
     },
 
     _handleEvents() {
+        // без .bind(this) метод бы вызвался применимо к canvas
         this.canvas.addEventListener('mousemove', this._moveHandler.bind(this));
         this.canvas.addEventListener('mousedown', this._startDraw.bind(this));
-        document.addEventListener('mouseup', this._endDraw.bind(this));
+        document.addEventListener('mouseup', this._endDraw.bind(this)); //применяем ко всему документу, а то будет рисоваться по всему экрану
         this.tools.addEventListener('click', this._clickHandler.bind(this));
         this.tools.addEventListener('change', this._changeHandler.bind(this));
     },
@@ -92,36 +93,3 @@ const abobe = {
 }
 
 abobe.init();
-// let tool = null;
-
-// canvas.addEventListener('mousedown', (e) => {
-//     if(tool) {
-//         if (tool == 'pencil') {
-//             drawPencil(e)
-//         }
-//     }
-// })
-
-// document.querySelector('#tools').addEventListener('click', buttons)
-
-// function buttons(e) {
-//     if (e.target.dataset.tool == 'pencil') {
-//         tool = 'pencil';
-//     }
-// }
-
-// function drawPencil(e) {
-//     let x = e.offsetX;
-//     let y = e.offsetY;
-//     ctx.fillRect(x, y, 50, 50)
-// }
-
-// ctx.fillRect(100, 50, 300, 150)
-// ctx.beginPath()
-// ctx.ellipse(100, 100, 50, 75, Math.PI / 4, 0, 2 * Math.PI)
-// ctx.fill()
-
-// ctx.beginPath()
-// ctx.ellipse(250, 100, 50, 50, Math.PI / 4, 0, 2 * Math.PI)
-// ctx.stroke()
-
