@@ -115,19 +115,16 @@ body a, body button, input[type="submit"] {
     cursor: pointer;
     opacity: 0.7;
 }
-.header__right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+
 .header__right a:first-child {
     margin-right: 26px;
     display: block;
     position: relative;
 }
+/* 
 .header__right a:first-child:hover {
-    /*opacity: 0.7;*/
-}
+    opacity: 0.7;
+} */
 .header__right a:first-child > img, .header__right a:first-child > div {
     transition-duration: 0.3s;
 }
@@ -152,9 +149,8 @@ body a, body button, input[type="submit"] {
     text-align: center;
     line-height: 18px;
 }
-.header__right a:nth-child(2) {
+.header__right :nth-child(3) {
     background-color: #f16d7f;
-    text-decoration: none;
     color: #ffffff;
     font-size: 15px;
     letter-spacing: 0.38px;
@@ -162,7 +158,7 @@ body a, body button, input[type="submit"] {
     padding: 13px 12px 11px 19px;
     margin-bottom: 11px;
 }
-.header__right a:nth-child(2):hover {
+.header__right :nth-child(3):hover {
     opacity: 0.7;
 }
 .header__right a i{
@@ -317,8 +313,8 @@ body a, body button, input[type="submit"] {
     width: 260px;
     background-color: #e9e9e9;
 }
-.hot-offer__shadow img{
-}
+/* .hot-offer__shadow img{
+} */
 .hot-offer {
     display: block;
     margin-bottom: 39px;
@@ -646,6 +642,19 @@ body a, body button, input[type="submit"] {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.header__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: center;
+    position: relative;
+  }
   
   .header__cart {
     background-color: #fff;
@@ -654,10 +663,10 @@ body a, body button, input[type="submit"] {
   }
   
   
-  .header__cart:hover > img {
+  /* .header__cart:hover > img {
     -webkit-transform: rotateY(360deg);
             transform: rotateY(360deg);
-  }
+  } */
   
   .header__cart-badge {
     position: absolute;
