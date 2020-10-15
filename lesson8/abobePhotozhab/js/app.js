@@ -68,6 +68,12 @@ const abobe = {
             this.ctx.fillRect(this.x, this.y, size, size);
         }
     },
+    _word() {
+        this.canvas.onmousemove = () => {
+            this.ctx.font = `${Math.floor(Math.random() * 100)}px Verdana`;
+            this.ctx.fillText(getRandomWord(), this.x, this.y)
+        }
+    },
     _fill() {
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     },
@@ -90,6 +96,10 @@ const abobe = {
 
         a.click();
     }
+}
+
+function getRandomWord() {
+    return Math.random().toString(36).substr(2, 1);
 }
 
 abobe.init();
