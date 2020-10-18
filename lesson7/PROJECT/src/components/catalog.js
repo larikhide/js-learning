@@ -1,15 +1,27 @@
-const NAMES = ['Mango People T-Shirt', 'Banana People T-Shirt', 'Strawberry People T-Shirt', 'Orange People T-Shirt', 'Pumpkin People T-Shirt', 'Pineapple People T-Shirt', 'Cucumber People T-Shirt', 'Tomato People T-Shirt'];
-const PRICES = [52, 53, 55, 67, 69, 94, 23, 45];
+// const NAMES = ['Mango People T-Shirt', 'Banana People T-Shirt', 'Strawberry People T-Shirt', 'Orange People T-Shirt', 'Pumpkin People T-Shirt', 'Pineapple People T-Shirt', 'Cucumber People T-Shirt', 'Tomato People T-Shirt'];
+// const PRICES = [52, 53, 55, 67, 69, 94, 23, 45];
 
 //
 const catalog = {
     items: [],
     container: null,
     imgFTPurl: 'https://raw.githubusercontent.com/larikhide/static/main/img/JS1_shop',
+    url: 'https://raw.githubusercontent.com/larikhide/static/main/JSON/catalog.json',
     init() {
         this.container = document.querySelector('#catalog');
-        this.items = getItems();
-        this.render();
+        // this.items = getItems();
+        this._get(this.url)
+        .then(items => {
+            this.items = items;
+        })
+        .then(() => {
+            this.render();
+        })
+
+        // this._handleEvents();
+    },
+    _get(url) {
+        return fetch(url).then(d => d.json()) //на выходе из этого метода вы получите полноценный объект(массив) с данными
     },
     render() {
         let htmlStr = '';
@@ -37,6 +49,7 @@ const catalog = {
     }
 }
 
+
 {/* <div class="hot-offer__stars">
     <div></div>
     <div></div>
@@ -48,13 +61,13 @@ const catalog = {
 catalog.init();
 //
 
-function createNewItem(name, price) {
-    return {
-        productName: name,
-        productPrice: price
-    }
-}
+// function createNewItem(name, price) {
+//     return {
+//         productName: name,
+//         productPrice: price
+//     }
+// }
 
-function getItems() {
-    return NAMES.map((name, index) => createNewItem(NAMES[index], PRICES[index]));
-}
+// function getItems() {
+//     return NAMES.map((name, index) => createNewItem(NAMES[index], PRICES [index]));
+// }
